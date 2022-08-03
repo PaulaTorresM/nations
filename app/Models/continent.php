@@ -14,4 +14,14 @@ class continent extends Model
     //omitir campos de auditoria
     public $timestamps= false;
     use HasFactory;
+
+    //relacion entre continente y sus regiones
+
+    public function regiones(){
+        //Parameters
+        //1. Linked Model
+        //2. Foreign Key of current model into related region model
+        return $this-> hasMany(Region::class,
+        'continent_id');
+    }
 }
